@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>move</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+    <div class="app">
+        <div class="framesHolder">
+            <div class="framesContainer"></div>
+            <div class="addFrame btn">+</div>
+            <div class="playFrames btn">&#127916;</div>
+        </div>
+
+        <div class="theFigure">
+            <div class="figureHolder">
+                <div class="figure">
+                    <div class="head bodyPart"  part="head"></div>
+                    
+                    <div class="holder waists">
+                        <div class="innerHolder">
+                            <div class="lineHolder top waist bodyPart" part="waist">
+                                <div class="line a"></div>
+                                <div class="line b"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="holder legs">
+                        <div class="innerHolder">
+                            <div class="lineHolder top rightLeg bodyPart" part="rightLeg">
+                                <div class="line a"></div>
+                                <div class="line b"></div>
+                            </div>
+                            <div class="lineHolder bottom leftLeg bodyPart" part="leftLeg">
+                                <div class="line a"></div>
+                                <div class="line b"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="holder hands">
+                        <div class="innerHolder">
+                            <div class="lineHolder top leftHand bodyPart" part="leftHand">
+                                <div class="line a"></div>
+                                <div class="line b"></div>
+                            </div>
+                            <div class="lineHolder bottom rightHand bodyPart" part="rightHand">
+                                <div class="line a"></div>
+                                <div class="line b"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="theAnimation">
+            <div class="animationBoundary">
+                <div class="animationHolder">
+                    <div class="cancelAnimation btn">X</div>
+                    <div class="animation">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="controller">
+            <div class="part" id="head" partNumber="0">
+                <div class="partName">Head</div>
+                <div class="partControl">
+                    <div class="moveDown btn">&#11015;</div>
+                    <input type="text" class="partValue" value="">
+                    <div class="moveUp btn">&#11014;</div>
+                </div>
+            </div>
+            <div class="part" id="waist" partNumber="1">
+                <div class="partName">Waist</div>
+                <div class="partControl">
+                    <div class="moveDown btn">&#11015;</div>
+                    <input type="text" class="partValue" value="">
+                    <div class="moveUp btn">&#11014;</div>
+                </div>
+            </div>
+            <div class="part" id="rightLeg" partNumber="2">
+                <div class="partName">Right Leg</div>
+                <div class="partControl">
+                    <div class="moveDown btn">&#11015;</div>
+                    <input type="text" class="partValue" value="">
+                    <div class="moveUp btn">&#11014;</div>
+                </div>
+            </div>
+            <div class="part" id="leftLeg" partNumber="3">
+                <div class="partName">Left Leg</div>
+                <div class="partControl">
+                    <div class="moveDown btn">&#11015;</div>
+                    <input type="text" class="partValue" value="">
+                    <div class="moveUp btn">&#11014;</div>
+                </div>
+            </div>
+            <div class="part" id="leftHand" partNumber="4">
+                <div class="partName">Left Hand</div>
+                <div class="partControl">
+                    <div class="moveDown btn">&#11015;</div>
+                    <input type="text" class="partValue" value="">
+                    <div class="moveUp btn">&#11014;</div>
+                </div>
+            </div>
+            <div class="part" id="rightHand" partNumber="5">
+                <div class="partName">Right Hand</div>
+                <div class="partControl">
+                    <div class="moveDown btn">&#11015;</div>
+                    <input type="text" class="partValue" value="">
+                    <div class="moveUp btn">&#11014;</div>
+                </div>
+            </div>
+
+            <div class="figureCoordinatePosition">
+                <div class="position" id="posY" posNumber="6">
+                    <div class="partName">Move Down/Up</div>
+                    <div class="partControl">
+                        <div class="moveUp btn">&#11014;</div>
+                        <input type="text" class="partValue" value="">
+                        <div class="moveDown btn">&#11015;</div>
+                    </div>
+                </div>
+                <div class="position" id="posX" posNumber="7">
+                    <div class="partName">Move Left/Right</div>
+                    <div class="partControl">
+                        <div class="moveUp btn">&#11014;</div>
+                        <input type="text" class="partValue" value="">
+                        <div class="moveDown btn">&#11015;</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="insertBtns">
+                <div class="selectFrame insertBtn btn">Select Frame</div>
+                <div class="addToSelectedFrame insertBtn btn">Add</div>
+                <div class="nextFrame insertBtn btn">Next Frame</div>
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>

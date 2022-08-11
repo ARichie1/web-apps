@@ -1,0 +1,367 @@
+:root{
+    --themeColor: skyblue;
+    --themeFontColor: #000;
+    --shadow: 0 0 0.5em #000a inset;
+    --head: 0deg; --waist: 0deg;
+    --leftHand : 50deg; --rightHand : -50deg;
+    --leftLeg : 75deg; --rightLeg : -75deg;
+    --posX: 0%; --posY: -4%;
+    --bodySize: 15%;--animSpeed: 3s;
+    --bodyColor: #000;
+}
+
+*{
+    padding: 0;margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: #ddd;
+    display: flex;justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+    user-select: none;
+    overflow: hidden;
+}
+
+/* =====THE APP STYLE END===== */
+.app{
+    width: 100%;height: 100%;
+    display: flex;justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.btn{
+    position: relative;
+    display: flex;justify-content: center;
+    align-items: center;
+    background: var(--themeColor);
+    color: var(--themeFontColor);
+    box-shadow: var(--shadow);
+    font-weight: bold;
+    cursor: pointer;
+}
+.btnInfo{
+    position: absolute;
+    top: -10%; left: 100%;
+    font-size: 80%;
+    font-weight: lighter;
+    background: var(--themeColor);
+    border-radius: 5px;
+    opacity: 0;z-index: -1;
+}
+.btn:active{transform: scale(0.9);}
+.btn:hover .btnInfo{
+    opacity: 1;
+    z-index: 5;
+}
+
+/* =====FRAMES STYLE START===== */
+.framesHolder{
+    position: relative;
+    width: 90%;height: 30%;
+    margin-top: 2%;
+}
+.framesContainer{
+    width: 100%;height: 100%;
+    display: block;
+    white-space: nowrap;
+    background: #fff;
+    border-radius: 10px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+.framesContainer::-webkit-scrollbar{background: inherit; border-radius: 20px;}
+.framesContainer::-webkit-scrollbar-thumb{background: var(--themeColor);box-shadow: var(--shadow);border-radius: 20px;}
+.framesContainer::-webkit-scrollbar-button{background: var(--themeFontColor);height: 0%;width: 0%; border-radius: 20%;}
+
+.frameContainer{
+    position: relative;
+    width: 100px;height: 100px;
+    margin: 2% 2%;
+    display: inline-block;
+    cursor: pointer;
+}
+.frame{
+    position: relative;
+    width: 100px;height: 100px;
+    display: flex;justify-content: center;
+    align-items: center;
+    background: #fff;
+    border-radius: 5px;
+    border: 1px solid var(--themeColor)
+}
+.frameProperties{
+    position: absolute;
+    top: 2%;  right: 2%;width: 96%;
+    display: flex;align-items: center;
+    justify-content: space-evenly;
+    border-radius: 5px;
+    opacity: 0; z-index: -1;
+}
+.frameProperty{
+    flex-basis: 25%;
+}
+.createFrameBefore, .createFrameAfter{
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+.createFrameBefore{
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+.deleteFrame{
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.addFrame{
+    position: absolute;
+    bottom: -20%; right: 5%;
+    width: 20px;height: 20px;
+    border-radius: 100%;
+}
+.playFrames{
+    position: absolute;
+    bottom: -20%; right: 15%;
+    width: 20px;height: 20px;
+    box-shadow: none;
+    background: transparent;
+}
+
+/* =====FRAMES STYLE END===== */
+
+/* =====THE STICK FIGURE STYLE START===== */
+.theFigure{
+    position: relative;
+    width: 90%;height: 150px;
+    padding: 10%;padding-bottom: 4.5%;
+    padding-left: 2%;padding-right: 2%;
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+    background: #fff;
+    border-bottom: 10px solid var(--bodyColor);
+    /* z-index: -1; */
+}
+.figureHolder{
+    position: absolute;
+    width: 100px;height: 117px;
+    left: var(--posX); bottom: var(--posY);
+    background: transparent;
+}
+
+.figure{
+    position: relative;
+    width: 100px;height: 100px;
+    margin-left: 0%;margin-bottom: 0%;
+    display: flex;justify-content: center;
+    align-items: center;
+    background: transparent;
+}
+.head{
+    position: absolute;top: 0%;
+    width: 30%;height: 30%;
+    background: var(--bodyColor);
+    border-radius: 100%;
+}
+
+.holder{
+    position: absolute;
+    width: 100%;height: var(--bodySize);
+    display: flex;
+    user-select: none;
+}
+.hands{top: 30%;}
+.legs{top: 60%;transform: rotate(180deg)}
+.waists{
+    position: absolute;top: 30%;
+    width: 60%;
+    transform: rotate(90deg);
+}
+
+.innerHolder{
+    position: relative;
+    width: 100%;height: 100%;
+    display: flex;
+}
+.lineHolder{
+    position: absolute;
+    width: 100%;height: 100%;
+    display: flex;
+}
+.line{
+    position: absolute;
+    width: 60%;height: 100%;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.top .a{background: transparent;}
+.top .b{background: var(--bodyColor);left: 40%;}
+
+.bottom .b{background: transparent;}
+.bottom .a{background: var(--bodyColor);}
+
+
+.figure .leftHand{transform: rotate(var(--leftHand));}
+.figure .rightHand{transform: rotate(var(--rightHand));}
+.figure .leftLeg{transform: rotate(var(--leftLeg));}
+.figure .rightLeg{transform: rotate(var(--rightLeg));}
+.figure .waist{transform: rotate(var(--waist));}
+/* =====THE STICK FIGURE STYLE START===== */
+
+/* =====THE ANIMATION START===== */
+.theAnimation{
+    position: absolute;
+    top: 50%;transform: translateY(-50%);
+    width: 90%;height: 50%;
+    padding: 2%;padding-bottom: 4.4%;
+    display: flex;align-items: center;
+    justify-content: center;
+    background: #fff;
+    border-bottom: 10px solid #000;
+    border-radius: 10px;
+    z-index: -1;
+    opacity: 0;
+}
+.animationBoundary{
+    position: relative;
+    width: 100%;height: 100%;
+}
+.animationHolder{
+    position: absolute;
+    width: 100px;height: 100px;
+    left: var(--posX); bottom: var(--posY);
+    animation: animPosition var(--animSpeed) linear infinite forwards;
+}
+.cancelAnimation{
+pos
+}
+.animation{
+    position: relative;
+    width: 100%;height: 100%;
+    display: flex;justify-content: center;
+    align-items: center;
+    background: transparent
+}
+
+.theAnimation .leftHand{transform: rotate(var(--leftHand));}
+.theAnimation .rightHand{transform: rotate(var(--rightHand));}
+.theAnimation .leftLeg{transform: rotate(var(--leftLeg));}
+.theAnimation .rightLeg{transform: rotate(var(--rightLeg));}
+.theAnimation .waist{transform: rotate(var(--waist));}
+
+.theAnimation .leftHand{animation: animleftHand var(--animSpeed) linear infinite forwards}
+.theAnimation .rightHand{animation: animrightHand var(--animSpeed) linear infinite forwards}
+.theAnimation .leftLeg{animation: animleftLeg var(--animSpeed) linear infinite forwards}
+.theAnimation .rightLeg{animation: animrightLeg var(--animSpeed) linear infinite forwards}
+.theAnimation .waist{animation: animwaist var(--animSpeed) linear infinite forwards}
+
+/* =====THE ANIMATION END===== */
+
+/* =====THE CONTROLLER START===== */
+.controller{
+    position: absolute;
+    height: 30%;width: 90%;
+    bottom: 4%;padding: 2%;
+    background: transparent;
+    color: var(--themeColor);
+    border-radius: 10px;
+    overflow-y: scroll;
+}
+.controller::-webkit-scrollbar{background: inherit; border-radius: 20px;}
+.controller::-webkit-scrollbar-thumb{background: var(--themeColor);box-shadow: var(--shadow);border-radius: 20px;}
+.controller::-webkit-scrollbar-button{background: var(--themeFontColor);height: 0%;width: 0%; border-radius: 20%;}
+
+
+.part{
+    margin-top: 2%;
+    display: flex;align-items: center;
+    justify-content: space-between;
+}
+.partName{width: 40%;}
+.partControl{
+    width: 60%;
+    display: flex;align-items: center;
+    justify-content: space-evenly;
+}
+.partControl .btn{
+    width: 20px;border-radius: 10px;
+}
+.partControl input{
+    width: 50%;
+    font-weight: bold;
+    text-align: center;
+    border: 2px solid var(--themeColor);
+    border-radius: 10px;
+    background: transparent;
+    color: var(--themeColor);
+}
+.partControl input:focus{
+    outline: none;
+}
+.insertBtns{
+    width: 100%;
+    margin: 2% auto;
+    margin-bottom: 0%;
+    display: flex;
+}
+.insertBtn{
+    width: 45%;
+    margin: 2% auto;
+    margin-bottom: 0%;
+    border-radius: 10px;
+}
+.addToSelectedFrame{
+    display: none;
+}
+
+.figureCoordinatePosition{
+    display: flex;
+    margin-top: 2%;
+}
+.figureCoordinatePosition .position{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.figureCoordinatePosition .partName{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.figureCoordinatePosition #posY .moveDown{
+    transform: rotate(-180deg);
+}
+.figureCoordinatePosition #posY .moveUp{
+    transform: rotate(-180deg);
+}
+.figureCoordinatePosition #posX .moveDown{
+    transform: rotate(-90deg);
+}
+.figureCoordinatePosition #posX .moveUp{
+    transform: rotate(-90deg);
+}
+/* =====THE CONTROLLER END===== */
+
+/* =====MEDIA QUERIES START===== */
+@media screen and (min-width: 650px){
+    .controller{right: 10%;}
+    .theFigure{
+        position: absolute;
+        left: 5%;bottom: 5%;
+        width: auto;height: auto;
+    }
+}
+@media screen and (max-width: 450px){
+    .framesHolder{margin-top: 2%;}
+    .theFigure{margin-top: 10%;}
+    .controller{margin-top: 10%;}
+}
+/* =====MEDIA QUERIES END===== */
